@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RayTracerCPP", "RayTracerCPP\RayTracerCPP.vcxproj", "{1B38241C-3B54-4A47-8155-FCE85AC189F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8E33AEA0-3942-45AD-B7EB-590979655403}"
+	ProjectSection(SolutionItems) = preProject
+		..\.gitignore = ..\.gitignore
+		..\LICENSE = ..\LICENSE
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B38241C-3B54-4A47-8155-FCE85AC189F1}.Debug|x64.ActiveCfg = Debug|x64
+		{1B38241C-3B54-4A47-8155-FCE85AC189F1}.Debug|x64.Build.0 = Debug|x64
+		{1B38241C-3B54-4A47-8155-FCE85AC189F1}.Release|x64.ActiveCfg = Release|x64
+		{1B38241C-3B54-4A47-8155-FCE85AC189F1}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E17178DF-1B7B-43D4-9183-A94982B819F5}
+	EndGlobalSection
+EndGlobal
