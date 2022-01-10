@@ -144,7 +144,7 @@ void SimpleRgbBmpWriter::setPixel(int x, int y, uint8_t r, uint8_t g, uint8_t b)
 	m_colordata[idx].b = b;
 }
 
-void SimpleRgbBmpWriter::setPixel(int x, int y, SimpleRgbBmpWriter::RGB rgb)
+void SimpleRgbBmpWriter::setPixel(int x, int y, RGB rgb)
 {
 	int idx = colorDataIndex(x, y);
 	m_colordata[idx] = rgb;
@@ -155,7 +155,7 @@ int SimpleRgbBmpWriter::colorDataIndex(int x, int y)
 	return y * m_width + x;
 }
 
-std::vector<SimpleRgbBmpWriter::RGB>::iterator SimpleRgbBmpWriter::getIterator(int x, int y)
+std::vector<RGB>::iterator SimpleRgbBmpWriter::getIterator(int x, int y)
 {
 	return m_colordata.begin() + colorDataIndex(x, y);
 }

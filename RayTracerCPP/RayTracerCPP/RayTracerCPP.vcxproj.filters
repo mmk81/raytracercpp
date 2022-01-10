@@ -21,9 +21,15 @@
     <ClCompile Include="simplergbbmpwriter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="rgb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="simplergbbmpwriter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rgb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

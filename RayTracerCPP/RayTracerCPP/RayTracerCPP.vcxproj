@@ -139,10 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="rgb.cpp" />
     <ClCompile Include="simplergbbmpwriter.cpp" />
     <ClCompile Include="RayTracerCPP.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="rgb.h" />
     <ClInclude Include="simplergbbmpwriter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

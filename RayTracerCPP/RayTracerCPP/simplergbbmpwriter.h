@@ -4,18 +4,12 @@
 #include <vector>
 #include <string>
 #include <iterator>
+#include "rgb.h"
 
 // Always stores in 24 bit RGB format without compression
 class SimpleRgbBmpWriter
 {
 public:
-	struct RGB
-	{
-		uint8_t r;
-		uint8_t g;
-		uint8_t b;
-	};
-
 	SimpleRgbBmpWriter(int width, int height);
 	virtual ~SimpleRgbBmpWriter();
 
