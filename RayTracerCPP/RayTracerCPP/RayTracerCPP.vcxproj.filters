@@ -24,12 +24,24 @@
     <ClCompile Include="rgb.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="vec3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rgbcanvas.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="simplergbbmpwriter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="rgb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vec3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rgbcanvas.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

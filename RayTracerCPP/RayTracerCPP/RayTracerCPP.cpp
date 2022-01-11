@@ -1,13 +1,13 @@
 #include <iostream>
 #include "simplergbbmpwriter.h"
-#include "rgb.h"
+#include "rgbcanvas.h"
 
 void writeTestBmp()
 {
     const int image_width = 256;
     const int image_height = 256;
 
-    SimpleRgbBmpWriter writer(image_width, image_height);
+    RgbCanvas canvas(image_width, image_height);
 
     for (int j = 0; j < image_height; ++j) {
         for (int i = 0; i < image_width; ++i) {
@@ -15,11 +15,11 @@ void writeTestBmp()
             auto g = double(j) / (image_height - 1);
             auto b = 0.25;
 
-            writer.setPixel(i, j, RGB(r, g, b));
+            canvas.setPixel(i, j, RGB(r, g, b));
         }
     }
 
-    writer.writeToFile("d:\\temp\\first.bmp");
+    SimpleRgbBmpWriter::writeCanvasToFile(canvas, "d:\\temp\\first.bmp");
 }
 
 int main()

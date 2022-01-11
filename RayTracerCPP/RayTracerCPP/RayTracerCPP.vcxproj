@@ -140,12 +140,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="rgb.cpp" />
+    <ClCompile Include="rgbcanvas.cpp" />
     <ClCompile Include="simplergbbmpwriter.cpp" />
     <ClCompile Include="RayTracerCPP.cpp" />
+    <ClCompile Include="vec3.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="rgb.h" />
+    <ClInclude Include="rgbcanvas.h" />
     <ClInclude Include="simplergbbmpwriter.h" />
+    <ClInclude Include="vec3.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

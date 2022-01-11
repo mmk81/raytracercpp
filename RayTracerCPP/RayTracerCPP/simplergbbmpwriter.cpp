@@ -1,6 +1,6 @@
 #include "simplergbbmpwriter.h"
+#include "rgbcanvas.h"
 
-#include <stdint.h>
 #include <ostream>
 #include <fstream>
 
@@ -93,72 +93,43 @@ namespace {
 
 }
 
-SimpleRgbBmpWriter::SimpleRgbBmpWriter(int width, int height) :
-	m_width(width),
-	m_stride(0),
-	m_height(height),
-	m_colordata()
-{
-	m_stride = (BitsPerPixel * width + 31) / 32;
-	m_stride *= 4;
-	m_colordata.resize(m_width * m_height);
-}
-
-SimpleRgbBmpWriter::~SimpleRgbBmpWriter()
-{
-
-}
-
-void SimpleRgbBmpWriter::writeToFile(const std::string& path)
+void SimpleRgbBmpWriter::writeCanvasToFile(const RgbCanvas& canvas, const std::string& path)
 {
 	std::ofstream os(path, std::ofstream::out | std::ofstream::binary);
 
-	int pixelDataSize = m_stride * m_height;
+	int width = canvas.width();
+	int height = canvas.height();
+	int stride = static_cast<int>((BitsPerPixel * width + 31) / 32) * 4;
+
+	const auto& pixels = canvas.pixels();
+	
+	int pixelDataSize = stride * height;
 	BmpHeader bmpHeader(pixelDataSize);
-	BitmapInfoHeader bmpInfoHeader(m_width, m_height, pixelDataSize);
+	BitmapInfoHeader bmpInfoHeader(width, height, pixelDataSize);
 
 	bmpHeader.serialize(os);
 	bmpInfoHeader.serialize(os);
 
 	// BMP stores last line first
-	for (int y = m_height - 1; y >= 0; y--)
+	for (int y = height - 1; y >= 0; y--)
 	{
-		for (int x = 0; x < m_width; x++)
+		for (int x = 0; x < width; x++)
 		{
-			const auto& pixel = m_colordata[colorDataIndex(x, y)];
+			const auto& pixel = pixels[y * width + x];
 			os.write((const char*)&pixel.b, 1);
 			os.write((const char*)&pixel.g, 1);
 			os.write((const char*)&pixel.r, 1);
 		}
 
 		int padding = 0;
-		os.write((const char*)&padding, m_stride - (m_width * BytesPerPixel));
+		os.write((const char*)&padding, stride - (width * BytesPerPixel));
 	}
+	
 }
 
-void SimpleRgbBmpWriter::setPixel(int x, int y, uint8_t r, uint8_t g, uint8_t b)
-{
-	int idx = colorDataIndex(x, y);
-	m_colordata[idx].r = r;
-	m_colordata[idx].g = g;
-	m_colordata[idx].b = b;
-}
 
-void SimpleRgbBmpWriter::setPixel(int x, int y, RGB rgb)
-{
-	int idx = colorDataIndex(x, y);
-	m_colordata[idx] = rgb;
-}
 
-int SimpleRgbBmpWriter::colorDataIndex(int x, int y)
-{
-	return y * m_width + x;
-}
 
-std::vector<RGB>::iterator SimpleRgbBmpWriter::getIterator(int x, int y)
-{
-	return m_colordata.begin() + colorDataIndex(x, y);
-}
 
 
 
