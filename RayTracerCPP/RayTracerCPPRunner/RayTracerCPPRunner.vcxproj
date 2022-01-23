@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{1b38241c-3b54-4a47-8155-fce85ac189f1}</ProjectGuid>
-    <RootNamespace>RayTracerCPP</RootNamespace>
+    <ProjectGuid>{5372cb56-6e4a-44c5-8f12-c0be0aaf8c8c}</ProjectGuid>
+    <RootNamespace>RayTracerCPPRunner</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -40,13 +40,13 @@
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -116,6 +116,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>D:\Git\raytracercpp\RayTracerCPP\RayTracerCPP;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -139,16 +140,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="rgb.cpp" />
-    <ClCompile Include="rgbcanvas.cpp" />
-    <ClCompile Include="simplergbbmpwriter.cpp" />
-    <ClCompile Include="vec3.cpp" />
+    <ProjectReference Include="..\RayTracerCPP\RayTracerCPP.vcxproj">
+      <Project>{1b38241c-3b54-4a47-8155-fce85ac189f1}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="rgb.h" />
-    <ClInclude Include="rgbcanvas.h" />
-    <ClInclude Include="simplergbbmpwriter.h" />
-    <ClInclude Include="vec3.h" />
+    <ClCompile Include="..\RayTracerCPP\RayTracerCPP.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
